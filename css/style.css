@@ -152,10 +152,10 @@ a:hover {text-decoration: underline; }
 
 /** Style header **/
 .page-header {margin: 0 auto;  color: var(--title_color); text-align: left; background-color: #fff;}
-@media screen and (min-width: 64em) { .page-header { padding-top: 5rem ; padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media screen and (min-width: 64em) { .page-header { padding-top: 5rem ; padding-left: 0; padding-right: 0; } }
 
-@media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 3rem 4rem; } }
-@media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 3rem 4rem; padding-left: 0; padding-right: 0; } }
+@media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; padding-left: 0; padding-right: 0;} }
 
 .project-name { margin-top: 0; margin-bottom: 0.1rem; }
 @media screen and (min-width: 64em) { .project-name { font-size: 3.25rem; } }
@@ -167,11 +167,11 @@ a:hover {text-decoration: underline; }
 @media screen and (min-width: 42em) and (max-width: 64em) { .project-tagline { font-size: 1.15rem; } }
 @media screen and (max-width: 42em) { .project-tagline { font-size: 1rem; } }
 
-.main-content { word-wrap: break-word; }
+.main-content { word-wrap: break-word;}
 .main-content :first-child { margin-top: 0; }
 
 /** Overrides style font and body **/
-@media screen and (min-width: 64em) { .main-content {max-width: 64rem; padding: 2rem 6rem; margin: 0 auto; font-size: 1.1rem; } }
+@media screen and (min-width: 64em) { .main-content {max-width: 100%; margin: 0 auto; font-size: 1.1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) { .main-content { padding: 2rem 4rem; font-size: 1.1rem; } }
 @media screen and (max-width: 42em) { .main-content { padding: 2rem 1rem; font-size: 1rem; } }
@@ -180,7 +180,7 @@ a:hover {text-decoration: underline; }
 .main-content .project i {font-size: 32px; line-height: 3;}
 
 /** Style titles **/
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 { margin-top: 2rem; margin-bottom: 1rem; font-weight: normal; color: var(--title_color);}
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 { margin-top: 2rem; margin-bottom: 2rem; font-weight: normal; color: var(--title_color);}
 .main-content h1 {border-bottom: solid 3px var(--style_color);}
 
 .main-content p { margin-bottom: 1em;}
@@ -197,20 +197,13 @@ a:hover {text-decoration: underline; }
 .main-content blockquote > :first-child { margin-top: 0; }
 .main-content blockquote > :last-child { margin-bottom: 0; }
 
+.main-content .project h2 {font-weight: bold; font-size: 0.9rem; font-size: 1.1 rem;}
+
 /** Style tables general **/
 .main-content table {width: 100%; overflow: auto; word-break: normal; word-break: keep-all; -webkit-overflow-scrolling: touch; }
 .main-content table th {font-weight: bold;}
 .main-content table th, .main-content table td {padding: 0.5rem 1rem; border: 1px solid #e9ebec; }
-/** Style tables resume **/
-.main-content .resume {padding: 0;}
-.main-content .resume td:first-child {text-align: left; width: 1%; white-space: nowrap; font-weight: bold;  }  /** First column of CV tables **/
-.main-content .resume tr:nth-child(odd) {background: rgb(211, 211, 211,0.3)} /** lignes paires (0,2,...) **/
-.main-content .resume tr:nth-child(even) {background: #fff}
 
-.main-content dl { padding: 0; }
-.main-content dl dt { padding: 0; margin-top: 1rem; font-size: 1rem; font-weight: bold; }
-.main-content dl dd { padding: 0; margin-bottom: 1rem; }
-.main-content hr { height: 2px; padding: 0; margin: 1rem 0; background-color: #eff0f1; border: 0; }
 
 .site-footer { padding-top: 2rem; margin-top: 2rem; border-top: solid 1px #eff0f1; }
 @media screen and (min-width: 64em) { .site-footer { font-size: 1rem; } }
@@ -223,6 +216,188 @@ a:hover {text-decoration: underline; }
 
 
 
+/** --------------- Styles Header --------------- **/
+
+.contact a {
+  color: var(--style_color);
+  line-height: 2.5;
+}
+
+/** Style background when popup activated **/
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+/** Style popup window **/
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #606c71;
+  width: 30%;
+  text-align: center;
+}
+/** Displays popup when clicked **/
+.show-email {
+  display: block;
+}
+/** Style popup close button **/
+.contact button {
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 0.75em;
+  text-align: center;
+  line-height: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--style_color);
+  background-color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  border: 1px solid var(--style_color);
+  box-sizing: border-box;
+}
+.contact .email button {
+  border: none;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+}
+.contact .email button:hover {
+  border: 1px solid var(--style_color);
+  background-color: white;
+  color: var(--style_color);
+}
+.contact .email button:active {
+  border: 1px solid #fff;
+  background-color: var(--style_color);
+  color: #fff;
+}
+.contact button:hover {
+  border: 1px solid #fff;
+  background-color: var(--style_color);
+  color: #fff;
+}
+
+
+
+
+
+/** --------------- Styles side-bar --------------- **/
+
+/** General styles **/
+.main-content .side-column {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 15%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  border: none;
+  line-height: 1.8em;
+  box-sizing: border-box;
+}
+
+/** Tab styles **/
+.main-content .side-column a {
+  all: initial;
+  position: static;
+  display: block;
+  width: 100%;
+  font-size: 0.75em;
+  text-align: center;
+  line-height: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: var(--style_color);
+  font-weight: bold;
+  font-family: sans-serif;
+  border: none;
+  box-sizing: border-box;
+}
+.main-content .side-column a:hover{border: 1px solid var(--style_color); }
+.main-content .side-column a:active{
+  border: 1px solid #fff;
+  background-color: var(--style_color);
+  color: #fff;
+}
+
+
+/** --------------- Styles main-column --------------- **/
+
+.main-content .main-column {
+  width:70%;
+  text-align: left;
+  vertical-align:top;
+  border: none;
+}
+
+/** --------------- Styles resume --------------- **/
+
+
+/** Style tables**/
+.main-content .resume {padding: 0;}
+.main-content .resume td:second-child {text-align: left; width: 1%; white-space: nowrap; font-style: italic;  }  /** First column of CV tables **/
+.main-content .resume tr:nth-child(odd) {background: rgb(211, 211, 211,0.3)} /** lignes paires (0,2,...) **/
+.main-content .resume tr:nth-child(even) {background: #fff}
+
+.main-content dl { padding: 0; }
+.main-content dl dt { padding: 0; margin-top: 1rem; font-size: 1rem; font-weight: bold; }
+.main-content dl dd { padding: 0; margin-bottom: 1rem; }
+.main-content hr { height: 2px; padding: 0; margin: 1rem 0; background-color: #eff0f1; border: 0; }
+
+
+.resume .row:before {
+  display: table;
+  box-sizing: border-box;
+}
+.resume .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.resume .column {
+  box-sizing: border-box;
+  display: inline-block;
+  float: none;
+  position: relative;
+  vertical-align: middle;
+}
+.resume .left {
+  width: 15%;
+  /* padding-right: 1%;  
+  padding-left: 1%; */
+  text-align: center;
+}
+.resume .center {
+  width: 16%;
+  padding-right: 0.75%;  
+  padding-left: 0.75%;
+  text-align: center;
+}
+.resume .right {
+  width: 68%;
+  /* padding-left: 1%;
+  padding-right: 0px; */
+  text-align: justify;
+  line-height: 2em;
+}
+
+
+
+/** --------------- Styles projects --------------- **/
 
 
 /*By default hides details */
@@ -240,6 +415,62 @@ label[for='show-liris'], label[for='show-par'], label[for='show-knockoffs'] {
   position: static;  /* defines position of the hide/show button */
   width: 10%;
   bottom: 0;
+  font-size: 0.65em;
+  text-align: center;
+  line-height: 1em;
+  padding: 0.6em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+label[for='show-liris']:hover, label[for='show-par']:hover, label[for='show-knockoffs']:hover { border: 1px solid; } /* aspect of button show/hide when hovered */
+/*Aspect of button show/hide when clicked */
+label[for='show-liris']:active, label[for='show-par']:active, label[for='show-knockoffs']:active {
+  border: 1px solid #fff;
+  background-color: #606c71;
+  color: #fff;
+}
+
+
+/* Table projets */
+.projects .row:before {
+  display: table;
+  box-sizing: border-box;
+}
+.projects .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.projects .column {
+  box-sizing: border-box;
+  display: inline-block;
+  float: none;
+  position: relative;
+  vertical-align: middle;
+}
+.projects .left {
+  width: 39%;
+  padding-right: 1%;  
+  padding-left: 1%;
+  text-align: center;
+}
+.projects .right {
+  width: 60.5%;
+  padding-left: 1%;
+  padding-right: 0px;
+  text-align: justify;
+}
+
+
+/* Aspect buttons for project papers */
+.projects .btn {display: inline-block;
+  all: initial;
+  position: static;  /* defines position of the hide/show button */
+  width: 10%;
+  bottom: 0;
   font-size: 0.75em;
   text-align: center;
   line-height: 1em;
@@ -250,12 +481,19 @@ label[for='show-liris'], label[for='show-par'], label[for='show-knockoffs'] {
   color: var(--style_color);
   font-weight: bold;
   font-family: sans-serif;
+  border: 1px solid var(--style_color);
 }
-
-label[for='show-liris']:hover, label[for='show-par']:hover, label[for='show-knockoffs']:hover { border: 1px solid var(--style_color); } /* aspect of button show/hide when hovered */
-/*Aspect of button show/hide when clicked */
-label[for='show-liris']:active, label[for='show-par']:active, label[for='show-knockoffs']:active {
-  border: 1px solid #fff;
+.projects .btn:hover {border: 1px solid #fff;
   background-color: var(--style_color);
-  color: #fff;
+  color: #fff;}
+
+.projects .course-projects hr {
+    width:75%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px 
+  }
+  
+.projects .course-projects p {
+  text-align: justify;
 }

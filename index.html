@@ -30,25 +30,57 @@
     <header class="page-header" role="banner">
       <div id="headtitles" style="text-align: center;">
 
-        <table style="width:100%;">
+        <table style="width:100%; border: none;">
           <tbody>
             <tr>  <!--  Row -->
-              <td style="width:25%; text-align: left; vertical-align: top;">  <!--  Element of row -->
-                <h2><strong style="color: var(--title_color);">Contact</strong><br></h2>
-                Email: <a href="mailto:julien.gaubil@ens-paris-saclay.fr" target="_blank">julien.gaubil@ens-paris-saclay.fr</a><br>
-                <a href="https://www.linkedin.com/in/julien-gaubil-34a5a71a2/" target="_blank">LinkedIn</a><br>
-                <a href="https://twitter.com/jgaubil" target="_blank">Twitter</a>
+              <td style="width:15%; text-align: center; vertical-align: top;">  <!--  Element of row -->
+                
+                <div class="contact">
+                  <h2><strong style="color: var(--title_color);">Contact</strong><br></h2>
+                  
+                  <!-- Email button -->
+                  <div class="email">
+                    <button id="mailBtn">
+                      Email ✉ 
+                    </button>
+                  </div>                  
+                  <div id="mailPopup" class="popup">
+                      <div class="popup-content">
+                          <p>julien.gaubil@ens-paris-saclay.fr</p>
+                          <button id="closePopup">
+                                Close
+                          </button>
+                      </div>
+                  </div>
+                  <!-- Email button script -->
+                  <script>
+                    mailBtn.addEventListener("click", function () {
+                      mailPopup.classList.add("show-email");
+                    });
+                    closePopup.addEventListener("click", function () {
+                      mailPopup.classList.remove("show-email");
+                    });
+                    window.addEventListener("click", function (event) {
+                        if (event.target == mailPopup) {
+                          mailPopup.classList.remove("show-email");
+                        }
+                    });
+                  </script>
+                
+                  <a href="https://www.linkedin.com/in/julien-gaubil-34a5a71a2/" target="_blank">LinkedIn</a><br>
+                  <a href="https://twitter.com/jgaubil" target="_blank">Twitter</a>
+                </div> 
 
               </td>
-              <td style="width:50%; vertical-align: top;">
+              <td style="width:70%; vertical-align: top;">
                 <h1 class="project-name">Julien Gaubil</h1>
                 <h2 class="project-tagline">Master's student in Machine Learning & Computer Vision <br>
                 @MSc MVA - ENS Paris-Saclay
                 </h2>
-                <a href="docs/Resume_Julien_Gaubil.pdf" class="btn">Resume</a>
+                <a href="docs/Resume_Julien_Gaubil.pdf" class="btn" target="_blank">Resume</a>
                 <a href="https://github.com/JulienGaubil" class="btn" target="_blank">Github</a>
               </td>
-              <td style="width:25%;">
+              <td style="width:15%;padding-left: 1rem; padding-right: 1rem;">
                 <div id="photo"><img src="figs/profile_pic.png" style="width: 175px; border-color: var(--style_color); border-style: solid; border-width: 5px; height: auto; border-radius: 50%;"></div>
               </td>
             </tr>
@@ -60,169 +92,325 @@
     </header>
 
     <main id="content" class="main-content" role="main">
+    <div class="main-content" style="box-sizing: border-box;">
 
-      <div class="Bio" style="text-justify: auto;">
-        <h1>Bio</h1>
-        <p>
-          I am a Master's degree student in Mathematics, Machine Learning & Computer Vision at the master 
-          <a href="https://www.master-mva.com/" target="_blank">MVA</a> from ENS Paris-Saclay. I previously graduated 
-          from <a href="https://www.ec-lyon.fr/en" target="_blank">École Centrale de Lyon</a> with an engineering degree in Applied Mathematics.
-          During my engineering degree, I also obtained a BSc in Mathematics and an MSc in Applied Mathematics from Lyon 1 University.<br>
-        </p>
-        <p>
-          I would like to pursue my studies with a <strong>PhD in Computer Vision</strong>! 
-          I am curious about many research directions in CV and have recently enjoyed working with <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a> in the <a href="https://imagine-lab.enpc.fr/" target="_blank">Imagine</a> team at ENPC
-          on unsupervised and weakly-supervised problems with applications in text-line analysis.
-        </p>
+    
+      <table style="width:100%;">
+      <tr style="border: none;">
 
-      </div>
+      <!-- Side column -->
+      <td class="side-column">
+        <a href="#about" class="tab">About</a><br>
+        <a href="#experiences" class="tab">Experiences</a><br>
+        <a href="#education" class="tab">Education</a><br>
+        <a href="#publications" class="tab">Publication</a><br>
+        <a href="#projects" class="tab">Projects</a><br> 
+      </td>
 
-      <h1>Short resume</h1>
-      <div class="resume">
-        <h2>Research experiences</h2>
-
-        <table>
-          <tbody>
-            <tr>  <!--  Row -->
-              <td>Summer 2022</td> <!--  Element of row -->
-              <td>5-month research internship advised by Pr. <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a> in the <a href="https://imagine-lab.enpc.fr/" target="_blank">Imagine</a> team at ENPC<br>
-              Subject: Weakly-supervised methods for Text-line analysis.
-              </td>
-            </tr>
-            <tr>
-              <td>Summer 2021</td>
-              <td>3-month research internship advised by Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> at CNRS <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a><br>
-              Subject: Real-time Visual Scene Understanding for Robotics.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2>Education</h2>
-          <table>
-            <tbody>
-              <tr>  <!--  Row -->
-                <td>2022 - 2023</td> <!--  Element of row -->
-                <td>Master's Degree Mathematics, Vision and Learning (<a href="https://www.master-mva.com/" target="_blank">MVA</a>) at <a href="https://ens-paris-saclay.fr/en" target="_blank">ENS Paris-Saclay</a></td>
-              </tr>
-              <tr>
-                <td>2019 - 2022</td>
-                <td>French Engineering degree in Applied Mathematics at <a href="https://www.ec-lyon.fr/en" target="_blank">École Centrale de Lyon</a></td>
-              </tr>
-              <tr>
-                <td>2017 - 2019</td>
-                <td>French preparatory classes at Lycée Marcelin Berthelot</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br>
-          Double curriculums in Applied Mathematics followed during my engineering degree at École Centrale de Lyon:<br>
-          <br>
-          <table>
-            <tbody>
-              <tr>  <!--  Row -->
-                <td>2021 - 2022</td> <!--  Element of row -->
-                <td>MSc <a href="https://mastermas.univ-lyon1.fr/index.php/master-2-maths-in-action/" target="_blank">MeA</a> in Applied Mathematics at Lyon 1 University with track Vision, Image & Learning</td>
-              </tr>
-              <tr>
-                <td>2020 - 2021</td>
-                <td>BSc in General Mathematics at Lyon 1 University</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- Main column -->
+      <td class="main-column">
+        <div class="Bio" id="about">
+        <h1>About</h1>
+        <div style="text-align: justify; padding-left: 20px; padding-right: 20px;">
+          <p>
+            I am a Master's degree student in Mathematics, Machine Learning & Computer Vision at the master 
+            <a href="https://www.master-mva.com/" target="_blank">MVA</a> from ENS Paris-Saclay. I previously graduated 
+            from <a href="https://www.ec-lyon.fr/en" target="_blank">École Centrale de Lyon</a> with an Engineering degree in Applied Mathematics.
+          </p>
+          <p>
+            I would like to pursue my studies with a <strong>PhD in Computer Vision</strong>! 
+            I am curious about many research directions in CV and I have recently enjoyed working with Pr. <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a> in the <a href="https://imagine-lab.enpc.fr/" target="_blank">Imagine</a> team
+            on unsupervised and weakly-supervised problems with applications in text-line analysis. I am currently pursuing my Master's Thesis at Princeton University, working with Pr. <a href="https://www.cs.princeton.edu/~jiadeng/" target="_blank">J. Deng</a>.
+          </p>  
+        </div>
         </div>
 
-      
-     
+
 
   
-
-      <h1>Projects</h1> 
-      <div class="projects">
-        
-        <ul>
-
-
-          <li>
-            <i>Weakly-supervised Deep Learning methods for text-line analysis</i> with <a href="https://imagine.enpc.fr/~siglidii/" target="_blank">Y. Siglidis</a>
-            and <a href="https://www.linkedin.com/in/nicolas-gonthier-242734a5/" target="_blank">N. Gonthier</a>.<br> 
-            Advisor: Pr. <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a> (<a href="https://imagine-lab.enpc.fr/" target="_blank">Imagine</a> team, ENPC).<br> 
-            More informations (Github and preprint) to be released soon!<br>
-          </li>
-          <br>
-
-          
-          <li>
-            <i>Object detection and 6D pose estimation for real-time Robotics</i>.<br>
-            Advisor: Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> (CNRS <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a>).<br> 
-
-            <input id="show-liris" type=checkbox>
-            <label for="show-liris" class="short-liris">Show details</label>            
-            <span class="detail-liris">
-              <par>
-                3-month research internship on the Robotics project Chiron in the <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a> team (2021). I was in charge of
-                the literature review on real-time object detection and 6D pose-estimation. I delivered:
-                <ul>
-                  <li>a 40 pages literature report over Deep Learning algorithms for Object detection & Pose Estimation,</li>
-                  <li>a ready-to-use baseline for the project (FS-Net, CVPR'21).</li>
-                </ul>
-              </par>           
-              <a href="docs/Report_6D_pose.pdf"  target="_blank">Report</a> (french), <a href="https://github.com/JulienGaubil/6DPose" target="_blank">Github</a>
-            </span><br>
-            <label for="show-liris" class="detail-liris">Hide</label><br>
-
-          </li>     
-          <br>
-
-          <li>
-            <i>Sparse variable selection in Lasso with Knockoffs</i> with Jérémie Marlhens.<br>
-             Advisor: Pr. <a href="https://ydecastro.github.io/" target="_blank">Y. de Castro</a> (Institut Camille Jordan).<br> 
-          
-            <input id="show-knockoffs" type=checkbox>
-            <label for="show-knockoffs" class="short-knockoffs">Show details</label>          
-            <span class="detail-knockoffs">
-              Academic research project during second term of last year (2021-2022) at École Centrale de Lyon. We studied the control of False Discovery Rate via Knockoffs as proposed
-              by R. Barber and E. Candès in their 2015 <a src="https://arxiv.org/pdf/1404.5609">article</a>. We delivered
-              a 25-page report that details the proof presented in the article and shows applications to System identification.<br>
-              <a href="docs/Report_Knockoffs.pdf"  target="_blank">Report</a>
-            </span><br>
-            <label for="show-knockoffs" class="detail-knockoffs">Hide</label><br>
-          
-          </li>
-          <br>
-
-          <li>
-            <i>Incremental Deep Learning</i> with Clément Martinelli.<br>
-             Advisor: Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> (CNRS <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a>).<br>
-          
-            <input id="show-par" type=checkbox>
-            <label for="show-par", class="short-par">Show details</label>
+        <div class="resume">
+          <div id="experiences">
+            <h1>Research experiences</h1> 
             
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/princeton.png" style="width:100%; max-width:150px; vertical-align: middle;">
+              </div>
+              <div  class="column center">
+                <i>May - Sep. 2023</i>
+              </div>
+              <div class="column right">
+                Master's Thesis advised by Pr. <a href="https://www.cs.princeton.edu/~jiadeng/" target="_blank">J. Deng</a> in the <a href="https://pvl.cs.princeton.edu/" target="_blank">Princeton Vision & Learning Lab</a> <br>
+                Subject: 3D Vision, Scene Representation.           
+              </div>
+            </div>
+            <hr>
 
-            <span class="detail-par">
-              Academic research project during 2nd year (2020-2021) at École Centrale de Lyon.
-              We studied Incremental Learning techniques to alleviate catastrophic forgetting when training an already trained Deep Neural Network on new examples or tasks.
-              We delivered a 50-page report over core existing techniques and proposed a theoretical improvement of one of them (GEM).<br>
-              <a href="docs/Report_Incremental_DL.pdf" target="_blank">Report</a> (french)
-            </span><br>
-            <label for="show-par", class="detail-par">Hide</label>
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/enpc.png" style="width:100%; max-width:50px; vertical-align: middle;">
+              </div>
+              <div  class="column center">
+                <i>Apr. - Sep. 2022</i>
+              </div>
+              <div class="column right">
+                Research internship advised by Pr. <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a> in the <a href="https://imagine-lab.enpc.fr/" target="_blank">Imagine</a> team at ENPC<br>
+                Subject: Weakly-supervised methods for analysis of Text-line images.        
+              </div>
+            </div>
+            <hr>
 
-          </li>
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/liris.png" style="width:100%; max-width:150px; vertical-align: middle;">
+              </div>
+              <div  class="column center">
+                <i>May. - Aug. 2021</i>
+              </div>
+              <div class="column right">
+                Research internship advised by Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> at CNRS <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a><br>
+                Subject: Real-time Visual Scene Understanding for Robotics.        
+              </div>
+            </div>
+            <hr>
+          </div>
+        
+          
+          <div id="education">
+            <h1>Education</h1>
 
-        </ul>   
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/mva.png" style="width:100%; max-width:200px; vertical-align: middle;">
+              </div>
+              <div  class="column center">
+                <i>2022 - 2023</i>
+              </div>
+              <div class="column right">
+                Master's Degree Mathematics, Vision and Learning (<a href="https://www.master-mva.com/" target="_blank">MVA</a>) at
+                <a href="https://ens-paris-saclay.fr/en" target="_blank">ENS Paris-Saclay</a>          
+              </div>
+            </div>
+            <hr>
 
-      </div>
-      <!-- 
-      <h1>News</h1> 
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/ecl.jpeg" style="width:100%; max-width:150px; vertical-align: middle;">
+              </div>
+              <div  class="column center">
+                <i>2019 - 2022</i>
+              </div>
+              <div class="column right">
+                French Engineering degree (=M.Sc.) in Applied Mathematics at <a href="https://www.ec-lyon.fr/en" target="_blank">École
+                Centrale de Lyon</a>        
+              </div>
+            </div>
+            <hr>
+            <p></p>
+            <p>
+              I am also passionate about <b>Mathematics</b>! I pursued a double-curriculum with Lyon 1 University during my engineering studies,
+              getting a <b>B.Sc.</b> in Mathematics and an <b>M.Sc</b> in Applied Mathematics.
+            </p>
 
-      <h1>Miscellaneous</h1>  -->
-      <div class="footer">
-        <footer class="site-footer">
-          © Julien Gaubil 2022        
-        </footer>
-      </div>
+          </div>
+        </div>
+  
+        
        
+  
+    
+  
+        <div class="projects">
+
+          <div id="publications">
+            <h1>Publication</h1>     
+    
+            <div class="row" id="ltw" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/ltw.png" style="width:100%;max-width:340px; vertical-align: middle;">
+              </div>
+              <div class="column right">
+                <div style="line-height: 1.7em;">
+                  <b>The Learnable Typewriter: A Generative Approach to Text Analysis</b><br>
+                  <a href="https://imagine.enpc.fr/~siglidii/" target="_blank">Y. Siglidis</a>, <a href="https://www.linkedin.com/in/nicolas-gonthier-242734a5/" target="_blank">N. Gonthier</a>,
+                  <u style="color:  var(--style_color)">J. Gaubil</u>, <a href="https://www.tmonnier.com/" target="_blank">T. Monnier</a>, <a href="http://imagine.enpc.fr/~aubrym/" target="_blank">M. Aubry</a><br> 
+                  <i >arXiv 2023</i><br>
+                  <a href="https://imagine.enpc.fr/~siglidii/learnable-typewriter/" class="btn" target="_blank">Webpage</a> &nbsp                 
+                  <a href="https://arxiv.org/abs/2302.01660" class="btn" target="_blank">Paper</a> &nbsp
+                  <a href="https://github.com/ysig/learnable-typewriter" class="btn" target="_blank">Code</a><br>
+                </div>
+                
+                <p style="text-justify: inter-word;">We introduce a generative approach for character analysis and recognition in text lines
+                  that can perform using little to no supervision.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div id="projects">
+            <h1>Projects</h1>
+            <h2>Research projects</h2>
+
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/knockoffs.png" style="width:100%;max-width:340px; vertical-align: middle;">
+              </div>
+              <div class="column right">
+                <div style="line-height: 1.7em;">
+                  <b>Sparse variable selection in Lasso using Knockoffs</b><br>
+                  J. Marlhens, <u style="color:  var(--style_color)">J. Gaubil</u>. Advisor:  Pr. <a href="https://ydecastro.github.io/" target="_blank">Y. de Castro</a> (Institut Camille Jordan)<br>
+                  <i >Winter term 2022</i><br>
+                  <a href="docs/Report_Knockoffs.pdf" class="btn" target="_blank">Report</a><br>
+                </div>
+                
+                <p style="text-justify: inter-word;">
+                  Study of the control of False Discovery Rate via Knockoffs as proposed by R. Barber and E. Candès, and application to System
+                  Identification.
+                </p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/6Dpose.png" style="width:100%;max-width:340px; vertical-align: middle;">
+                <span style="font-size: 0.7em; ">Source : <a href="https://arxiv.org/abs/1911.08324" target="_blank">[1]</a></span>
+              </div>
+              <div class="column right">
+                <div style="line-height: 1.7em;">
+                  <b>Object detection and 6D pose estimation for real-time Robotics</b><br>
+                  Advisor: Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> (CNRS Liris)<br> 
+                  <i >May - Aug. 2021</i><br>
+                  <a href="docs/Report_6D_pose.pdf" class="btn" target="_blank">Report</a>&nbsp (french)<br>
+                </div>
+                
+                <p style="text-justify: inter-word;">
+
+                  Literature review and evaluation of baseline Deep Learning approaches for real-time Object detection and 6D pose-estimation.</p>
+                  <input id="show-liris" type=checkbox>
+                  <label for="show-liris" class="short-liris">Show details ↓</label>      
+                  <span class="detail-liris">
+                    <p>
+                      Research internship on the Robotics project Chiron in the <a href="https://liris.cnrs.fr/" target="_blank">LIRIS</a> team, that aimed at creating
+                      a semi-autonomous robot assistant for hospitalized patients.
+                      <p></p>
+                      My contributions consisted in a 40 pages literature report of the field as well as fixing the codebase of an existing
+                      approach <a href="https://arxiv.org/abs/2103.07054" target="_blank">(FS-Net, CVPR'21)</a> that further served as a baseline for the project. My work was then used as a basis by an incoming PhD student.
+                    </p>
+                  </span>
+                  <label for="show-liris" class="detail-liris">Hide ↑</label>
+              </div>
+            </div>
+            <hr>
+    
+            
+    
+            
+    
+            <div class="row" style="text-align:left; margin-bottom:0.5rem; margin-top:0.5rem;">
+              <div class="column left">
+                <img src="figs/incremental.png" style="width:100%;max-width:340px; vertical-align: middle;">
+                <span style="font-size: 0.7em; ">Source : <a href="https://arxiv.org/abs/1906.01076" target="_blank">[2]</a></span>
+                
+              </div>
+              <div class="column right">
+                <div style="line-height: 1.7em;">
+                  <b>Incremental Deep Learning</b><br>
+                  <u style="color:  var(--style_color)">J. Gaubil</u>, Clément Martinelli. Advisor: Pr. <a href="http://perso.ec-lyon.fr/emmanuel.dellandrea/" target="_blank">E. Dellandrea</a> (CNRS Liris)<br> 
+                  <i >Academic year 2020 - 2021</i><br>
+                  <a href="docs/Report_Incremental_DL.pdf" class="btn" target="_blank">Report</a>&nbsp (french)<br>
+                </div>
+                
+                <p style="text-justify: inter-word;">
+                  Study of approaches to alleviate Catastrophic Forgetting when training an already optimized 
+                  Neural Network on new samples or tasks.
+                </p>
+    
+                <input id="show-par" type=checkbox>
+                <label for="show-par", class="short-par">Show details ↓</label>         
+                <span class="detail-par">
+                  <p>
+                    Academic research project during 2nd year at École Centrale de Lyon.
+                    We delivered a 50-page report over core existing Incremental Deep Learning techniques and proposed a theoretical improvement of one of them
+                    <a href="https://arxiv.org/abs/1706.08840" target="_blank">(GEM)</a>.
+                  </p>             
+                </span>
+                <label for="show-par", class="detail-par">Hide ↑</label>             
+              </div>
+            </div>
+            <hr>
+            
+            <div class="course-projects"> 
+              <h2>Course projects</h2>
+              <p>Here are listed some relevant projects completed as part of course evaluations during my curriculum.</p>
+      
+              <p>
+                <b>Neural Point-based rendering and View Synthesis</b>  <i>MVA, Point Cloud and 3D Modelling course.</i>
+                &nbsp<a href="docs/npm3d.pdf" class="btn" target="_blank">Report</a><br>
+                <p>
+                  Study of the recently proposed <a href="https://arxiv.org/abs/2205.05869" target="_blank">Scuplted Neural Points</a>. Evaluation of the
+                  proposed sculpting mechanism, ablation study and proposition of improvements.
+                </p>
+
+                <hr>
+
+                <b>Self-Supervised Learning of Visual Representations</b> <i>MVA, Computer Vision course</i>&nbsp with Manh-Dan Pham.
+                &nbsp<a href="docs/RecVis.pdf" class="btn" target="_blank">Report</a><br>
+                <p>
+                  Study of the recently proposed <a href="https://arxiv.org/abs/2105.04906" target="_blank">VICReg</a> and
+                  <a href="https://arxiv.org/abs/2002.05709" target="_blank">SimCLR</a>, evaluation of the representations learned by VICReg on
+                  a challenging downstream task of Fine-grained image Classification and in a small dataset setting.
+                </p>
+                
+                <hr>
+
+                <b>Weakly-supervised analysis of text-line images</b> <i>MVA, Deep Learning course.</i>
+                &nbsp<a href="docs/deepl.pdf" class="btn" target="_blank">Report</a>&nbsp
+                <a href=" https://github.com/JulienGaubil/MVA/tree/main/Deep-Learning" class="btn" target="_blank">Code</a><br>
+                <p>
+                  Developments of the <a href="#ltw">Learnable Typewriter</a> by using several learned prototypes for each character
+                  instead of a single one, which then made it to the final paper. Design of a richer transformation scheme by using Thin Plate
+                  Spline transformations.
+                </p>
+                
+                <hr>                
+
+                <b>Denoising Diffusion Implicit Models</b> <i> MVA, Generative Models for images</i>&nbsp with Thomas Dujardin, Thibault Richard.
+                &nbsp<a href="docs/generative.pdf" class="btn" target="_blank">Report</a><br>
+                <p>
+                  Study of <a href="https://arxiv.org/abs/2010.02502" target="_blank">Denoising Diffusion Implicit Models</a>, by deriving and
+                  analysing its forward process and experimenting different subsamplings for the generative process. We also propose an original
+                  derivation of the backward process for Gamma-DDIMs.
+                </p>                
+              </p>
+            </div>
+            
+          </div>
+          
+        </div>
+        <!-- 
+        <h1>News</h1> 
+  
+        <h1>Miscellaneous</h1>  -->
+
+        <div class="footer">
+          <footer class="site-footer">
+            © Julien Gaubil 2023        
+          </footer>
+        </div>
+
+      </td>
+      <td style="width:15%; text-align: left; vertical-align: top; border: none;">
+        
+
+      </td>
+      </tr>      
+      </table>
+
+    
+    </div>
     </main>
   </body>
 </html>
